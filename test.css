@@ -19,7 +19,6 @@ body {
   align-items: center;
   padding: 15px 40px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-  flex-wrap: wrap;
 }
 .navbar .logo {
   font-size: 22px;
@@ -42,16 +41,16 @@ body {
 /* Landing */
 .landing {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #120033, #2a0b4a);
   color: #fff;
 }
 .landing h1 {
-  font-size: 36px;
+  font-size: 42px;
   margin-bottom: 20px;
 }
 .landing p {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 30px;
   color: #ccc;
 }
@@ -71,20 +70,20 @@ body {
 /* Game container */
 .container {
   margin: 40px auto;
-  width: 90%;
-  max-width: 1000px;
+  width: 1000px;
   background: #1d093d;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.7);
 }
+
+
 .game-info {
   display: flex;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px;
   color: #ddd;
   padding: 10px;
-  flex-wrap: wrap;
 }
 .game-info .category span {
   text-transform: capitalize;
@@ -96,37 +95,154 @@ body {
 .row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
 }
+
 .hangman-draw {
-  flex: 1 1 300px;
   background-color: #2a0b4a;
   padding: 20px;
   height: 324px;
   border-radius: 8px;
-  margin: 10px;
-}
-.letters {
-  flex: 1 1 300px;
-  padding: 15px;
-  text-align: center;
-  margin: 10px;
+  width: 50%;
 }
 
+.hangman-draw .the-draw {
+  width: 60px;
+  height: 280px;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  left: -60px;
+  margin: auto;
+  display: none;
+}
+.hangman-draw .the-draw .the-stand {
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 50%;
+  transform: translate(-50%,0);
+  display: none;
+}
+.hangman-draw .the-draw .the-hang {
+  display: none;
+}
+.hangman-draw .the-draw .the-hang::before {
+  content: "";
+  width: 100px;
+  height: 4px;
+  position: absolute;
+  background-color: #fff;
+  top: 10px;
+  left: 30px;
+}
+.hangman-draw .the-draw .the-hang::after {
+  content: "";
+  width: 4px;
+  height: 30px;
+  position: absolute;
+  background-color: #fff;
+  top: 10px;
+  left: 130px;
+}
+.hangman-draw .the-draw .the-rope {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 40px;
+  left: 130px;
+  transform: translate(-50%);
+  border-radius: 50%;
+  border: 4px dashed #fff;
+  display: none;
+}
+.hangman-draw .the-draw .the-man .head {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: 130px;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 4px solid #fff;
+  display: none;
+}
+.hangman-draw .the-draw .the-man .body {
+  width: 4px;
+  height: 110px;
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  transform: translate(-50%, 0);
+  background-color: #fff;
+  display: none;
+}
+.hangman-draw .the-draw .the-man .hands {
+  display: none;
+}
+.hangman-draw .the-draw .the-man .hands::before,
+.hangman-draw .the-draw .the-man .hands::after {
+  content: "";
+  width: 50px;
+  height: 4px;
+  position: absolute;
+  background-color: #fff;
+  top: 130px;
+}
+.hangman-draw .the-draw .the-man .hands::before {
+  left: 85px;
+  transform: rotate(30deg);
+}
+.hangman-draw .the-draw .the-man .hands::after {
+  left: 125px;
+  transform: rotate(-30deg);
+}
+.hangman-draw .the-draw .the-man .legs {
+  display: none;
+}
+.hangman-draw .the-draw .the-man .legs::before,
+.hangman-draw .the-draw .the-man .legs::after {
+  content: "";
+  width: 50px;
+  height: 4px;
+  position: absolute;
+  background-color: #fff;
+  top: 216px;
+}
+.hangman-draw .the-draw .the-man .legs::before {
+  left: 85px;
+  transform: rotate(-30deg);
+}
+.hangman-draw .the-draw .the-man .legs::after {
+  left: 125px;
+  transform: rotate(30deg);
+}
+.hangman-draw.wrong-1 .the-draw { display: block; }
+.hangman-draw.wrong-2 .the-draw .the-stand { display: block; }
+.hangman-draw.wrong-3 .the-draw .the-hang { display: block; }
+.hangman-draw.wrong-4 .the-draw .the-rope { display: block; }
+.hangman-draw.wrong-5 .the-draw .head { display: block; }
+.hangman-draw.wrong-6 .the-draw .body { display: block; }
+.hangman-draw.wrong-7 .the-draw .hands { display: block; }
+.hangman-draw.wrong-8 .the-draw .legs { display: block; }
+
 /* Letters */
+.letters {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+}
 .letters.finished {
   pointer-events: none;
 }
 .letters .letter-box {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   display: inline-block;
   background-color: #e91e63;
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   margin: 5px;
-  line-height: 50px;
+  line-height: 55px;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -155,13 +271,13 @@ body {
   border-radius: 8px;
 }
 .letter-guess span {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #1d093d;
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   margin: 5px;
-  line-height: 50px;
+  line-height: 60px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -190,77 +306,19 @@ body {
   background-color: #e91e63;
   padding: 50px 20px;
   width: 80%;
-  max-width: 500px;
   top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 10%;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   border-radius: 10px;
   color: #fff;
   z-index: 10;
   box-shadow: 0 6px 20px rgba(0,0,0,0.8);
 }
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #2a0b4a;
-  font-size: 14px;
+    text-align: center;
+    padding: 20px;
+    background-color: #2a0b4a;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .landing h1 {
-    font-size: 28px;
-  }
-  .landing p {
-    font-size: 14px;
-  }
-  .play-btn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-  .game-info {
-    font-size: 20px;
-  }
-  .letters .letter-box {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
-    line-height: 45px;
-  }
-  .letter-guess span {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
-    line-height: 45px;
-  }
-}
 
-@media (max-width: 480px) {
-  .landing h1 {
-    font-size: 24px;
-  }
-  .landing p {
-    font-size: 12px;
-  }
-  .play-btn {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-  .letters .letter-box {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    line-height: 40px;
-  }
-  .letter-guess span {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    line-height: 40px;
-  }
-  .navbar {
-    padding: 10px 20px;
-  }
-}
