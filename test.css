@@ -102,7 +102,7 @@ body {
   padding: 20px;
   height: 324px;
   border-radius: 8px;
-  width: 50%;
+  flex: 1;
 }
 
 .hangman-draw .the-draw {
@@ -229,7 +229,7 @@ body {
 .letters {
   padding: 15px;
   text-align: center;
-  width: 50%;
+  flex: 1;
 }
 .letters.finished {
   pointer-events: none;
@@ -320,5 +320,6 @@ footer {
     padding: 20px;
     background-color: #2a0b4a;
 }
+
 
 
