@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Hangman Game</div>
+        <button id="lang-toggle" class="lang-btn">🌐 EN</button>
+    </nav>
+
+    <!-- Landing Section -->
+    <section class="landing">
+        <h1>Welcome to Hangman</h1>
+        <p>السلام عليكم ورحمة الله و بركاته مرحبا بكم في لعة هانج مان </p>
+        <a href="#game" class="play-btn">Start Playing</a>
+    </section>
+
+    <!-- Game Container -->
+    <div id="game" class="container">
+        <div class="game-info">
+            <div class="category"><span></span></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="hangman-draw">
+                <div class="the-draw">
+                    <div class="the-stand"></div>
+                    <div class="the-hang"></div>
+                    <div class="the-rope"></div>
+                    <div class="the-man">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="hands"></div>
+                        <div class="legs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="letters"></div>
+        </div>
+        <hr>
+        <div class="letter-guess"></div>
+    </div>
+    <footer>
+        <div class="contfoot">
+            <h3>Designed by Ebrahim Hammad</h3>
+        </div>
+    </footer>
+
+    <!-- أصوات -->
+    <audio src="fail-234710.mp3" id="fail" preload="auto"></audio>
+    <audio src="success-340660.mp3" id="success" preload="auto"></audio>
+
+    <script src="test.js"></script>
+</body>
+
+</html>
